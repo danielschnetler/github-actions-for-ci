@@ -27,6 +27,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build --if-present
+    #Upload the artifacts for test execution
+    - uses: actions/upload-artifact@master
+        with:
+          name: webpack artifacts
+          path: public/
 
   test:
     runs-on: ubuntu-latest
